@@ -56,34 +56,33 @@ var question = [{
 inquirer.prompt(question).then(function (answers) {
 
     const readMEFile = 
-`
-    ## Description
+`## Description
     
-    ${answers.description}
+${answers.description}
     
-    ## Installation
+## Installation
     
-    ${answers.installation}
+${answers.installation}
     
-    ## Usage
+## Usage
     
-    ${answers.usage}
+${answers.usage}
     
-    ## Credits
+## Credits
     
-    ${answers.credits}
+${answers.credits}
     
-    ## License
+## License
     
-    ${answers.license}
+${answers.license}
     
-    ## Badges
+## Badges
     
-    ${answers.badges}
+${answers.badges}
     
-    ## Contributing
+## Contributing
     
-    ${answers.contributor}`
+${answers.contributor}`
 
     fs.writeFile('README1.md', ``, (err) => {
         if (err) throw err;
