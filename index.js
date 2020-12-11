@@ -17,11 +17,13 @@ var question = [{
         name: "installation",
         type: "input",
         message: "What are the steps to install your project?",
+        default: "No need to install anything",
     },
     {
         name: "usage",
         type: "input",
         message: "Provide insctructions here",
+        default: "I am too lazy to provide instructions"
     },
     {
         name: "credits",
