@@ -55,7 +55,7 @@ var question = [{
 
 inquirer.prompt(question).then(function (answers) {
 
-    const readMEFile = 
+const readMEFile = 
 `## Description
     
 ${answers.description}
