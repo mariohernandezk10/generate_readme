@@ -17,7 +17,7 @@ I am the only collaborator
     
 ## License
     
-No license needed
+mit
     
 ## Badges
     

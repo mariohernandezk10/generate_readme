@@ -33,8 +33,8 @@ var question = [{
     },
     {
         name: "license",
+        type: "list",
         choices: ["mit", "afl-3.0", "apache-2.0", "artistic-2.0", "bsl-1.0", "bsd-2-clause", "cc", "wtfpl"],
-        default: "No license needed",
     },
     {
         name: "badges",
