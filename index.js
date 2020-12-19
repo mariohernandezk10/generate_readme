@@ -8,6 +8,16 @@ var question = [{
         default: "I don't have a title.."
     },
     {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+    },
+    {
         name: "description",
         type: "input",
         message: "Write a description for your project",
@@ -55,10 +65,18 @@ var question = [{
 
 inquirer.prompt(question).then(function (answers) {
 
-const readMEFile = 
-`## Description
+    const readMEFile =
+        `## Description
     
 ${answers.description}
+
+## Github
+
+${answers.github}
+
+## Email 
+
+${answers.email}
     
 ## Installation
     
