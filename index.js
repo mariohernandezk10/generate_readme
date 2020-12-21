@@ -70,6 +70,20 @@ inquirer.prompt(question).then(function (answers) {
     
 ${answers.description}
 
+## Table of Contents 
+
+* [Installation](#installation)
+
+* [Usage](#usage)
+
+* [License](#license)
+
+* [Contributing](#contributing)
+
+* [Tests](#tests)
+
+* [Questions](#questions)
+
 ## Github
 
 ${answers.github}
@@ -100,7 +114,19 @@ ${answers.badges}
     
 ## Contributing
     
-${answers.contributor}`
+${answers.contributor}
+
+## Github pages / Repo:
+[Github Repo](https://github.com/mariohernandezk10/generate_readme)
+[Screencastify video](https://drive.google.com/file/d/1PpYHDfIOqGJDcIOZVmVczmnniSI56Uww/view)
+
+## Questions
+
+If you have any questions about the repo, 
+open an issue or contact me directly at 
+mariohernandezk10@gmail.com. You can 
+find more of my work at [MarioHernandez]
+(https://github.com/mariohernandezk10/).`
 
     fs.writeFile('README1.md', ``, (err) => {
         if (err) throw err;
