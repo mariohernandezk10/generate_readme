@@ -44,13 +44,7 @@ var question = [{
     {
         name: "license",
         type: "list",
-        choices: ["mit", "afl-3.0", "apache-2.0", "artistic-2.0", "bsl-1.0", "bsd-2-clause", "cc", "wtfpl"],
-    },
-    {
-        name: "badges",
-        type: "input",
-        message: "List badges",
-        default: "I am not listing badges",
+        choices: ["mit", "apache-2.0", "bsd-2-clause"],
     },
     {
         name: "contributor",
@@ -63,10 +57,22 @@ var question = [{
 // So you can use the name: _____ as a variable and save that in a object
 // hard code the titles and subtitle of the readeME
 
-inquirer.prompt(question).then(function (answers) {
+function getBadge(licenseName) {
+    if(licenseName === "mit") {
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    } else if (licenseName === "apache-2.0") {
+        return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+    } else if (licenseName === "bsd-2-clause") {
+        return "[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)"
+    }
+}
 
-    const readMEFile =
-        `## Description
+function getREADME(answers, badge) {
+    return `# Title
+
+${answers.title}
+
+## Description
     
 ${answers.description}
 
@@ -110,7 +116,7 @@ ${answers.license}
     
 ## Badges
     
-${answers.badges}
+${badge}
     
 ## Contributing
     
@@ -126,18 +132,25 @@ If you have any questions about the repo,
 open an issue or contact me directly at 
 mariohernandezk10@gmail.com. You can 
 find more of my work at [MarioHernandez]
-(https://github.com/mariohernandezk10/).`
+(https://github.com/mariohernandezk10/).`;
+}
 
-    fs.writeFile('README1.md', ``, (err) => {
+inquirer.prompt(question).then(function (answers) {
+
+    const badge = getBadge(answers.license)
+
+    const READMEfile = getREADME(answers, badge);
+
+    fs.writeFile('README1.md', READMEfile, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
     });
-    fs.appendFileSync('README1.md', `# ${answers.title}\n`, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
-    fs.appendFileSync('README1.md', readMEFile, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    });
+    // fs.appendFileSync('README1.md', `# ${answers.title}\n`, (err) => {
+    //     if (err) throw err;
+    //     console.log('The file has been saved!');
+    // });
+    // fs.appendFileSync('README1.md', readMEFile, (err) => {
+    //     if (err) throw err;
+    //     console.log('The file has been saved!');
+    // });
 });
