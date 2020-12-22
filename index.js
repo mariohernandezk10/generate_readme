@@ -145,12 +145,5 @@ inquirer.prompt(question).then(function (answers) {
         if (err) throw err;
         console.log('The file has been saved!');
     });
-    // fs.appendFileSync('README1.md', `# ${answers.title}\n`, (err) => {
-    //     if (err) throw err;
-    //     console.log('The file has been saved!');
-    // });
-    // fs.appendFileSync('README1.md', readMEFile, (err) => {
-    //     if (err) throw err;
-    //     console.log('The file has been saved!');
-    // });
+
 });
